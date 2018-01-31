@@ -1,2 +1,12 @@
 <!--@subject Your account is active  @-->
-Hello {{var email|raw}} ! Your account is now active.
+<!--@vars {
+"var customer.email":"Customer Email",
+"var customer.name":"Customer Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">{{trans "%name," name=$customer.name}}</p>
+<p>Your account is now active.</p>
+
+{{template config_path="design/email/footer_template"}}
