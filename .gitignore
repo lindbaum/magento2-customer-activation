@@ -1,0 +1,7 @@
+# ignore files that are not important to the build process
+
+/.cache
+/.metadata
+/.project
+/.settings
+/.buildpath
