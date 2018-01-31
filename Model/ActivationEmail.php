@@ -75,7 +75,11 @@ class ActivationEmail
         $this->transportBuilder->addTo($customer->getEmail());
         $this->transportBuilder->setFrom(
             [
-                'name'=> $this->storeManagerInterface->getStore($customer->getStoreId())->getName(),
+                'name'=> $this->scopeConfigInterface->getValue(
+                    'trans_email/ident_sales/name',
+                    ScopeInterface::SCOPE_STORE,
+                    $customer->getStoreId()
+                    ),
                 'email' => $this->scopeConfigInterface->getValue(
                     'trans_email/ident_sales/email',
                     ScopeInterface::SCOPE_STORE,
